@@ -1,0 +1,3 @@
+/home/userbrigh/CLionProjects/Strunktury_Danych_Projekt_nr_2/cmake-build-debug/CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir
+/home/userbrigh/CLionProjects/Strunktury_Danych_Projekt_nr_2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/userbrigh/CLionProjects/Strunktury_Danych_Projekt_nr_2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
