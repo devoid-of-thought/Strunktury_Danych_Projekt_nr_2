@@ -23,15 +23,23 @@ void runTest(const string& queueName, ofstream& insertFile, ofstream& extractFil
         QueueType pq1;
         QueueType pq2;
         QueueType pq3;
-        QueueType pq4;
         const vector<pair<int, int>>& data = datasets[f];
         for (const auto& elem : data) {
             pq1.insert(elem.first, elem.second);
             pq2.insert(elem.first, elem.second);
             pq3.insert(elem.first, elem.second);
-            pq4.insert(elem.first, elem.second);
         }
 
+        auto startSize = high_resolution_clock::now();
+        pq3.returnSize();
+        auto endSize = high_resolution_clock::now();
+        totalSize += duration_cast<nanoseconds>(endSize - startSize).count();
+        cout << "returnsize wykonany dla : " << queueName<<" rozmiar = " << pq3.returnSize() << " " << to_string(size) << " elementów "<< " dla "<< to_string(f) <<" próby "<< endl;
+        auto startFind = high_resolution_clock::now();
+        pq3.findMax();
+        auto endFind = high_resolution_clock::now();
+        totalFind += duration_cast<nanoseconds>(endFind - startFind).count();
+        cout << "find-max wykonany dla : " << queueName << " " << to_string(size) << " elementów "<< " dla "<< to_string(f) <<" próby "<< endl;
 
         auto startInsert = high_resolution_clock::now();
         pq1.insert(dist(gen), dist(gen));
@@ -45,25 +53,13 @@ void runTest(const string& queueName, ofstream& insertFile, ofstream& extractFil
         totalExtract += duration_cast<nanoseconds>(endExtract - startExtract).count();
         cout << "extractmax wykonany dla : " << queueName << " " << to_string(size) << " elementów "<< " dla "<< to_string(f) <<" próby "<< endl;
 
-
-        auto startSize = high_resolution_clock::now();
-        pq4.returnSize();
-        auto endSize = high_resolution_clock::now();
-        totalSize += duration_cast<nanoseconds>(endSize - startSize).count();
-        cout << "returnsize wykonany dla : " << queueName<<" rozmiar = " << pq4.returnSize() << " " << to_string(size) << " elementów "<< " dla "<< to_string(f) <<" próby "<< endl;
-
         auto startModify = high_resolution_clock::now();
         pq3.modifyKey(rand() % size-1 , dist(gen));
         auto endModify = high_resolution_clock::now();
         totalModify += duration_cast<nanoseconds>(endModify - startModify).count();
         cout << "modify wykonany dla : " << queueName << " " << to_string(size) << " elementów "<< " dla "<< to_string(f) <<" próby "<< endl;
 
-        auto startFind = high_resolution_clock::now();
-        pq4.findMax();
-        auto endFind = high_resolution_clock::now();
-        totalFind += duration_cast<nanoseconds>(endFind - startFind).count();
-        cout << "find-max wykonany dla : " << queueName << " " << to_string(size) << " elementów "<< " dla "<< to_string(f) <<" próby "<< endl;
-    }
+        }
 
     int powtórzenia = datasets.size();
     insertFile << queueName << "," << size << "," << totalInsert / powtórzenia << "\n";
@@ -98,8 +94,8 @@ vector<pair<int, int>> generujTablice(int size) {
 
 int testowanie() {
     srand(time(0));
-    vector<int> testSizes = { 5000,8000, 10000, 20000,35000, 50000,80000, 100000, 175000, 250000};
-    string path =  "/home/userbrigh/CLionProjects/Strunktury_Danych_Projekt_nr_2/";
+    vector<int> testSizes = { 5000,8000, 10000,15000,20000,35000,42500, 50000,80000, 100000};
+    string path =  "/home/userbrigh/CLionProjects/Struktury_danych_projket_2/Strunktury_Danych_Projekt_nr_2/";
 
     ofstream insertFile(path + "insert.csv");
     ofstream extractFile(path+"extract.csv");
@@ -116,13 +112,23 @@ int testowanie() {
     allFile << "operacja,kolejka,liczba_elementow,czas_ns\n";
 
     for (int size : testSizes) {
-        vector<vector<pair<int, int>>> tablice;
-        for (int i = 0; i < 50; ++i) {
-            tablice.push_back(generujTablice(size));
+        if (size <=35000) {
+            vector<vector<pair<int, int>>> tablice;
+            for (int i = 0; i < 50; ++i) {
+                tablice.push_back(generujTablice(size));
+            }
+            runTest<Kopiec>("Kopiec", insertFile, extractFile, findFile, modifyFile, sizeFile, allFile, size, tablice);
+            runTest<Kolejka>("Lista wiązana", insertFile, extractFile, findFile, modifyFile, sizeFile, allFile, size, tablice);
+        } else {
+            vector<vector<pair<int, int>>> tablice;
+            for (int i = 0; i < 10; ++i) {
+                tablice.push_back(generujTablice(size));
+            }
+            runTest<Kopiec>("Kopiec", insertFile, extractFile, findFile, modifyFile, sizeFile, allFile, size, tablice);
+            runTest<Kolejka>("Lista wiązana", insertFile, extractFile, findFile, modifyFile, sizeFile, allFile, size, tablice);
         }
-        runTest<Kopiec>("Kopiec", insertFile, extractFile, findFile, modifyFile, sizeFile, allFile, size, tablice);
-        runTest<Kolejka>("Lista wiązana", insertFile, extractFile, findFile, modifyFile, sizeFile, allFile, size, tablice);
     }
+
 
     insertFile.close();
     extractFile.close();

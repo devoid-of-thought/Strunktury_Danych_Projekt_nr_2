@@ -1,0 +1,21 @@
+kolejka,liczba_elementow,czas_ns
+Kopiec,5000,5191
+Lista wiązana,5000,10274
+Kopiec,8000,5821
+Lista wiązana,8000,27199
+Kopiec,10000,6830
+Lista wiązana,10000,29835
+Kopiec,15000,10158
+Lista wiązana,15000,66798
+Kopiec,20000,14284
+Lista wiązana,20000,105741
+Kopiec,35000,26863
+Lista wiązana,35000,113168
+Kopiec,42500,35297
+Lista wiązana,42500,261978
+Kopiec,50000,37845
+Lista wiązana,50000,356944
+Kopiec,80000,58437
+Lista wiązana,80000,491400
+Kopiec,100000,77607
+Lista wiązana,100000,635549

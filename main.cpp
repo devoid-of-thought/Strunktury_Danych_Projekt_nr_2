@@ -117,7 +117,7 @@ int main() {
         std::cout << "=== MENU GLOWNE ===\n";
         std::cout << "1. Kolejka priorytetowa na liscie wiązanej\n";
         std::cout << "2. Kolejka priotytetowa na kopcu\n";
-        std::cout << "3. Testu\n";
+        std::cout << "3. Testuj\n";
 
         std::cout << "0. Wyjscie\n";
         std::cout << "Twoj wybor: ";

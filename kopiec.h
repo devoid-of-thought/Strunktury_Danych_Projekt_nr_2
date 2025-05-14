@@ -1,7 +1,5 @@
-#ifndef kopiec_h
-#define kopiec_h
-#include <vector>
-using namespace std;
+#ifndef KOPIEC_H
+#define KOPIEC_H
 
 struct Element {
     int wartosc;
@@ -10,17 +8,21 @@ struct Element {
 
 class Kopiec {
 private:
-    vector<Element> heap;
+    Element* heap;
+    int size;
+    int capacity;
+    void resize();
 
 public:
     Kopiec();
-    void insert(int wartosc, int priorytet);    
-    Element extractMax();                    
-    Element findMax() const;                  
-    void modifyKey(int wartosc, int nowyPriorytet);
-    int returnSize() const;         
+    ~Kopiec();
+    void insert(int wartosc, int priorytet);
+    Element extractMax();
+    Element findMax() const;
+    void modifyKey(int wartosc, int newPriorytet);
+    int returnSize() const;
     void clear();
-    bool empty() const;                       
+    bool empty() const;
 };
 
 #endif
