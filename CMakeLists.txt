@@ -7,4 +7,8 @@ add_executable(Strunktury_Danych_Projekt_nr_2 main.cpp
         Prioqueue.cpp
         Prioqueue.h
         SLL.h
-        SLL.cpp)
+        SLL.cpp
+        kopiec.cpp
+        test.h
+        test.cpp
+        test.cpp)

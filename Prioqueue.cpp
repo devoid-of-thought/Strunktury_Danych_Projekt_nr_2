@@ -1,8 +1,14 @@
 #include <iostream>
 #include "Prioqueue.h"
 using namespace std;
-Kolejka::Kolejka(): head(nullptr), tail(nullptr) {}
-
+Kolejka::Kolejka(): head(nullptr), tail(nullptr), rozmiar(0) {}
+Kolejka::Kolejka(const Kolejka& other) : head(nullptr), tail(nullptr), rozmiar(0) {
+    element* current = other.head;
+    while (current != nullptr) {
+        insert(current->wartość, current->priorytet); // Preserves priority order
+        current = current->NastepnyWezel;
+    }
+}
 Kolejka::~Kolejka() {
     element* wezel = head;
     while (wezel != nullptr) {
@@ -32,13 +38,12 @@ void Kolejka::insert(int warto, int prio) {
     rozmiar++;
 }
 
-void Kolejka::excractMax() {
+void Kolejka::extractMax() {
     if (head == nullptr) {
         cout <<"Brak elementów w kolejce" << endl;
         return;
     }
     element* pierwszy_element = head;
-    cout << "Element o największym priorytecie: Wartość: " << pierwszy_element->wartość << " Priorytet: " << pierwszy_element->priorytet << endl;
     head = head->NastepnyWezel;
     rozmiar--;
     delete pierwszy_element;

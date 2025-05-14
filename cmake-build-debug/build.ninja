@@ -67,6 +67,18 @@ build CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/SLL.cpp.o: CXX_COMPILER__Str
   OBJECT_DIR = CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir
   OBJECT_FILE_DIR = CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir
 
+build CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/kopiec.cpp.o: CXX_COMPILER__Strunktury_Danych_Projekt_nr_2_unscanned_Debug /home/userbrigh/CLionProjects/Strunktury_Danych_Projekt_nr_2/kopiec.cpp || cmake_object_order_depends_target_Strunktury_Danych_Projekt_nr_2
+  DEP_FILE = CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/kopiec.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir
+
+build CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/test.cpp.o: CXX_COMPILER__Strunktury_Danych_Projekt_nr_2_unscanned_Debug /home/userbrigh/CLionProjects/Strunktury_Danych_Projekt_nr_2/test.cpp || cmake_object_order_depends_target_Strunktury_Danych_Projekt_nr_2
+  DEP_FILE = CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/test.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Strunktury_Danych_Projekt_nr_2
@@ -75,7 +87,7 @@ build CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/SLL.cpp.o: CXX_COMPILER__Str
 #############################################
 # Link the executable Strunktury_Danych_Projekt_nr_2
 
-build Strunktury_Danych_Projekt_nr_2: CXX_EXECUTABLE_LINKER__Strunktury_Danych_Projekt_nr_2_Debug CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/main.cpp.o CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/Prioqueue.cpp.o CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/SLL.cpp.o
+build Strunktury_Danych_Projekt_nr_2: CXX_EXECUTABLE_LINKER__Strunktury_Danych_Projekt_nr_2_Debug CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/main.cpp.o CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/Prioqueue.cpp.o CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/SLL.cpp.o CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/kopiec.cpp.o CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir/test.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Strunktury_Danych_Projekt_nr_2.dir
   POST_BUILD = :
